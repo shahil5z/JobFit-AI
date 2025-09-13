@@ -5,8 +5,8 @@ JobFit AI is a browser extension that leverages AI to analyze and match your res
 
 This project consists of a Flask backend for AI processing and a Chrome extension frontend for user interaction.
 
-## Sample Image
--![image alt]()
+## Extension UI
+-![image alt](https://github.com/shahil5z/JobFit-AI/blob/9817f489dab973748f337854211e5de80403f5f1/Sample%20Image/main%20ui.png)
 
 Features
 --------
@@ -87,7 +87,7 @@ Installation
 
 ### Step 2: Install the Chrome Extension
 
-1.  Open Google Chrome and navigate to chrome://extensions/.
+1.  Open Google Chrome or any other Browser and navigate to chrome://extensions/.
 2.  Enable "Developer mode" in the top right.
 3.  Click "Load unpacked" and select the extension folder from the project.
 4.  The JobFit AI extension should now appear in your extensions list.
@@ -131,3 +131,7 @@ Development Notes
     -   Resume must be text-readable (PDF/DOCX parsing assumes plain text; complex formats may need conversion).
     -   Analysis is based on text content; no image or layout processing.
     -   OpenAI API usage may incur costs based on your plan.
+ 
+License
+-----------------
+This project is licensed under the MIT License - see the LICENSE file for details.
