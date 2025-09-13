@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFit AI</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Inline CSS to ensure dimensions are applied */
+    html, body {
+      width: 450px !important;
+      min-height: 600px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="logo-container">
+        <img src="icons/icon48.png" alt="JobFit AI Logo" class="logo">
+        <h1>JobFit AI</h1>
+      </div>
+      <p class="tagline">Your personal resume matcher</p>
+    </header>
+
+    <main class="main-content">
+      <!-- Upload Section -->
+      <section id="upload-section" class="card">
+        <h2><i class="fas fa-upload"></i> Upload Your Resume</h2>
+        <div class="upload-area" id="upload-area">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drag & drop your resume here</p>
+          <p class="small-text">or</p>
+          <label for="resume-upload" class="file-label">
+            <i class="fas fa-file-upload"></i> Browse Files
+          </label>
+          <input type="file" id="resume-upload" accept=".txt,.pdf,.docx">
+        </div>
+        <div class="file-info" id="file-info" style="display: none;">
+          <i class="fas fa-file-alt"></i>
+          <span id="file-name"></span>
+          <button id="remove-file" class="icon-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <button id="save-resume" class="primary-btn">
+          <i class="fas fa-save"></i> Save Resume
+        </button>
+      </section>
+
+      <!-- Match Section -->
+      <section id="match-section" class="card" style="display: none;">
+        <h2><i class="fas fa-search"></i> Analyze Job Match</h2>
+        <p class="info-text">Your resume is saved. Now find a job posting, select the job description text, and click below to analyze the match.</p>
+        <button id="match-btn" class="primary-btn">
+          <i class="fas fa-magic"></i> Match My Resume
+        </button>
+        <button id="try-another-resume" class="secondary-btn">
+          <i class="fas fa-file-alt"></i> Try Another Resume
+        </button>
+      </section>
+
+      <!-- Results Section -->
+      <section id="results" class="card" style="display: none;">
+        <div class="results-header">
+          <h2><i class="fas fa-chart-line"></i> Match Analysis</h2>
+          <button id="new-analysis" class="secondary-btn">
+            <i class="fas fa-redo"></i> New Analysis
+          </button>
+        </div>
+        
+        <div class="score-container">
+          <div class="score-circle">
+            <span id="score-value">0</span>
+            <span class="score-label">Match Score</span>
+          </div>
+          <div class="score-details">
+            <p id="score-explanation"></p>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="strengths"><i class="fas fa-star"></i> Strengths</button>
+          <button class="tab-btn" data-tab="keywords"><i class="fas fa-key"></i> Keywords</button>
+          <button class="tab-btn" data-tab="gaps"><i class="fas fa-exclamation-triangle"></i> Gaps</button>
+          <button class="tab-btn" data-tab="suggestions"><i class="fas fa-lightbulb"></i> Suggestions</button>
+        </div>
+
+        <div class="tab-content">
+          <div id="strengths" class="tab-pane active">
+            <ul id="strengths-list"></ul>
+          </div>
+          <div id="keywords" class="tab-pane">
+            <div class="keyword-container">
+              <div class="matched-keywords">
+                <h4>Matched Keywords</h4>
+                <div id="matched-keywords-list"></div>
+              </div>
+              <div class="missing-keywords">
+                <h4>Missing Keywords</h4>
+                <div id="missing-keywords-list"></div>
+              </div>
+            </div>
+          </div>
+          <div id="gaps" class="tab-pane">
+            <ul id="gaps-list"></ul>
+          </div>
+          <div id="suggestions" class="tab-pane">
+            <ul id="suggestions-list"></ul>
+          </div>
+        </div>
+
+        <div class="verdict-container">
+          <h3><i class="fas fa-gavel"></i> Overall Verdict</h3>
+          <p id="verdict-text"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>JobFit AI &copy; 2025 | Level up your career with AI</p>
+    </footer>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="loading-overlay" style="display: none;">
+    <div class="spinner"></div>
+    <p>Analyzing your resume match...</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
